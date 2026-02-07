@@ -2,50 +2,240 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>خواريزم</title>
 
   <style>
-    body {
-      background-color: #c7cdd2;
-      text-align: center;
+    :root{
+      --bg:#c7cdd2;
+      --brand:#1d1b80;
+      --text:#1d1b80;
+      --light: rgba(29,27,128,0.15);
+      --lighter: rgba(29,27,128,0.08);
+      --radius:20px;
+    }
+
+    *{
+      box-sizing:border-box;
       font-family: Arial, Tahoma, sans-serif;
-      margin: 0;
-      padding: 60px;
     }
 
-    h1 {
-      color: #1d1b80;
-      font-size: 48px;
-      margin-bottom: 10px;
+    body{
+      margin:0;
+      background:
+        radial-gradient(circle at top right, var(--light), transparent 60%),
+        radial-gradient(circle at bottom left, var(--lighter), transparent 60%),
+        var(--bg);
+      color:var(--text);
     }
 
-    p {
-      color: #333;
-      font-size: 20px;
-      margin-bottom: 30px;
+    /* ===== NAV ===== */
+    .nav{
+      padding:20px 0;
+      border-bottom:1px solid var(--lighter);
+    }
+    .container{
+      width:min(1100px, 92%);
+      margin:auto;
+    }
+    .nav-inner{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      font-size:22px;
+      font-weight:900;
+    }
+    .logo-img{
+      width:70px;
+      height:auto;
+      object-fit:contain;
+    }
+    .menu{
+      display:flex;
+      gap:20px;
+      font-weight:700;
+    }
+    .menu a{
+      text-decoration:none;
+      color:var(--text);
+      opacity:.8;
     }
 
-    button {
-      background-color: #1d1b80;
-      color: white;
-      border: none;
-      padding: 14px 30px;
-      font-size: 18px;
-      border-radius: 8px;
-      cursor: pointer;
+    /* ===== HERO ===== */
+    .hero{
+      padding:80px 0;
+    }
+    .hero-box{
+      background:rgba(255,255,255,0.45);
+      border-radius:var(--radius);
+      padding:50px;
+      box-shadow:0 30px 80px var(--lighter);
+    }
+    .badge{
+      display:inline-block;
+      padding:8px 18px;
+      border-radius:999px;
+      background:var(--lighter);
+      font-weight:700;
+      margin-bottom:20px;
+    }
+    h1{
+      font-size:52px;
+      margin:10px 0;
+    }
+    p{
+      font-size:20px;
+      line-height:1.8;
+      max-width:600px;
+      opacity:.9;
     }
 
-    button:hover {
-      opacity: 0.9;
+    .actions{
+      margin-top:30px;
+      display:flex;
+      gap:15px;
+      flex-wrap:wrap;
+    }
+    .btn{
+      padding:14px 28px;
+      border-radius:14px;
+      font-size:18px;
+      font-weight:800;
+      border:none;
+      cursor:pointer;
+      text-decoration:none;
+    }
+    .btn-primary{
+      background:var(--brand);
+      color:white;
+      box-shadow:0 15px 40px var(--light);
+    }
+    .btn-outline{
+      background:transparent;
+      color:var(--brand);
+      border:2px solid var(--brand);
+    }
+
+    /* ===== SERVICES ===== */
+    .section{
+      padding:80px 0;
+    }
+    .section h2{
+      font-size:36px;
+      margin-bottom:10px;
+    }
+    .section p{
+      font-size:18px;
+    }
+    .cards{
+      margin-top:40px;
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:20px;
+    }
+    .card{
+      background:rgba(255,255,255,0.45);
+      border-radius:var(--radius);
+      padding:30px;
+      box-shadow:0 20px 50px var(--lighter);
+      transition:.2s;
+    }
+    .card:hover{
+      transform:translateY(-6px);
+    }
+    .card h3{
+      font-size:26px;
+      margin:10px 0;
+    }
+
+    /* ===== FOOTER ===== */
+    footer{
+      padding:30px 0;
+      text-align:center;
+      font-weight:700;
+      opacity:.8;
+      border-top:1px solid var(--lighter);
+    }
+
+    @media(max-width:600px){
+      h1{font-size:38px;}
+      .hero-box{padding:30px;}
+      .logo-img{width:55px;}
     }
   </style>
 </head>
 
 <body>
 
-  <h1>خواريزم 🚀</h1>
-  <p>أهلاً بيك في أول موقع لخواريزم</p>
-  <button>ابدأ الآن</button>
+  <!-- NAV -->
+  <div class="nav">
+    <div class="container nav-inner">
+      <div class="logo">
+        <img src="logo.png" alt="Khawarizm Logo" class="logo-img">
+        <span>خواريزم</span>
+      </div>
+      <div class="menu">
+        <a href="#">الرئيسية</a>
+        <a href="#">خدماتنا</a>
+        <a href="#">من نحن</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-box">
+        <div class="badge">هوية رقمية احترافية</div>
+        <h1>خواريزم 🚀</h1>
+        <p>
+          لاندينج بيدج عصرية تساعدك تعرض خدماتك وتبني حضور رقمي قوي
+          بأسلوب بسيط وأنيق يعكس هوية البراند.
+        </p>
+
+        <div class="actions">
+          <a class="btn btn-primary" href="#">ابدأ الآن</a>
+          <a class="btn btn-outline" href="#">تعرف على المزيد</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="section">
+    <div class="container">
+      <h2>خدماتنا</h2>
+      <p>نقدّم حلول متكاملة لتطوير علامتك الرقمية.</p>
+
+      <div class="cards">
+        <div class="card">
+          <h3>SEO</h3>
+          <p>تحسين ظهورك في محركات البحث.</p>
+        </div>
+        <div class="card">
+          <h3>Social Media</h3>
+          <p>إدارة احترافية لوسائل التواصل.</p>
+        </div>
+        <div class="card">
+          <h3>Ads</h3>
+          <p>حملات إعلانية فعالة ومربحة.</p>
+        </div>
+        <div class="card">
+          <h3>Influencers</h3>
+          <p>تسويق بالمشاهير باحتراف.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 خواريزم — جميع الحقوق محفوظة
+  </footer>
 
 </body>
 </html>
